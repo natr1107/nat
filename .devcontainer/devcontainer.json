@@ -1,0 +1,198 @@
+Cover image for GUI in GitHub Codespaces
+Konstantinos Mazgaltzidis
+Konstantinos Mazgaltzidis
+Posted on Mar 25
+
+
+10
+GUI in GitHub Codespaces
+#
+githubcodespace
+#
+github
+#
+productivity
+GitHub Codespaces with VNC Support
+GitHub Codespaces offers developers an instant, cloud-based development environment with a plethora of tools and utilities, all accessible directly from your browser. While it's perfect for many development tasks such as command line tools, Docker, or NodeJS, certain tasks, like those involving OpenGL rendering or Java Swing necessitate a graphical interface, which Codespaces lacks. However, with the help of a tool called Light-weight Desktop (desktop-lite), we can overcome this limitation.
+
+Setting Up VNC Support with Desktop-lite
+To enable VNC support in Codespaces, follow these steps:
+
+Navigate to the option “Configure dev container” from the Codespaces dropdown menu.
+Image description
+
+Replace the existing JSON configuration with the following:
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:1": {}
+  },
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "desktop"
+    }
+  }
+}
+
+Commit the changes and open the Codespaces environment. If prompted to rebuild the container to apply the changes, proceed with the rebuild.
+Image description
+
+Click on the bottom icon labeled "Ports" and select the "Open in Browser" option.
+Image description
+
+Use the default password vscode to connect.
+Image description
+
+In the Settings, select the Scaling Mode to Remote Resizing for a better user experience.
+Image description
+
+You can now navigate to your project path as seen in VS Code by using the command
+cd /workspaces/<repo_name>
+
+Any changes made here will reflect in the VS Code environment seamlessly.
+
+profile
+Coherence
+Promoted
+
+Billboard image
+
+The Next Generation Developer Platform
+Coherence is the first Platform-as-a-Service you can control. Unlike "black-box" platforms that are opinionated about the infra you can deploy, Coherence is powered by CNC, the open-source IaC framework, which offers limitless customization.
+
+Learn more
+
+Top comments (4)
+Subscribe
+pic
+Add to the discussion
+ 
+ 
+rsarnath profile image
+rsarnath
+•
+Jul 30
+
+I am trying to run a java gui app in codespace, going through a browser. I have tried various things that have been suggested, and am getting an error like this: (other errors appeared before, but they disappeared)
+Can't connect to X11 window server using 'localhost:0.0' as the value of the DISPLAY variable.
+I have tried 10.0 instead of 0.0 with the same result.
+When I follow these steps, it feels like like I am shooting in the dark. I have used Xming and putty to run java remotely on an Ubuntu terminal and have the display window on my windows machine. I undestand clearly how that works. Is there some document that explains what are all the entities that are at work here, and how this connection should work?
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+konmaz profile image
+Konstantinos Mazgaltzidis 
+•
+Sep 16
+
+Have you solved the issue you have?
+Sorry for the late reply didn't get any notification.
+
+
+Like
+Reply
+ 
+ 
+misshudspith profile image
+Amy Hudspith
+•
+Oct 26
+
+When I click on the globe I'm getting the following error
+
+currently unable to handle this request. HTTP ERROR 502
+
+Any ideas?
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+konmaz profile image
+Konstantinos Mazgaltzidis 
+•
+Nov 5
+
+I’m seeing the same error on my end. I’ll investigate further and keep you updated with any solutions I find.
+
+
+1
+ like
+Like
+Reply
+Code of Conduct • Report abuse
+profile
+CodeRabbit
+Promoted
+
+Image of Coderabbit
+
+AI Code Review: Ship Faster, Smarter and Safer
+Streamline your pull requests with CodeRabbit, the AI-powered code review tool that eliminates event loop bottlenecks, catches async errors, and safeguards against dependency vulnerabilities—all while enhancing performance and security, line by line.
+
+Start a free trial
+
+Read next
+dexterhale profile image
+The Secret Sauce to CSS Positioning and Layout: Flexbox & Grid Basics
+Dexter Hale - Nov 26
+
+junissen profile image
+QtWidgets and QtCore
+KateMLady - Nov 26
+
+apilover profile image
+Top 8 Swagger Codegen Alternatives
+Wanda - Nov 26
+
+leandroveiga profile image
+Mastering Error Handling in ASP.NET Core 9.0: Advanced Strategies for Robust Applications
+Leandro Veiga - Nov 26
+
+
+Konstantinos Mazgaltzidis
+Follow
+Joined
+Mar 2, 2023
+Trending on DEV Community 
+Ravin Rau profile image
+🦸 Supercharge your debugging skills with the console.trace
+#discuss #javascript #node #webdev
+Josue Valdivia profile image
+Step-by-Step Guide for Deploying a Next.js Project as GitHub Pages
+#githubpage #github #nextjs #tutorial
+Harsh Mishra profile image
+Github Actions Full Guide
+#git #github #githubactions
+profile
+Heroku
+Promoted
+
+Heroku
+
+Simplify your DevOps and maximize your time.
+Since 2007, Heroku has been the go-to platform for developers as it monitors uptime, performance, and infrastructure concerns, allowing you to focus on writing code.
+
+Learn More
+
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:1": {}
+  },
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "desktop"
+    }
+  }
+}
